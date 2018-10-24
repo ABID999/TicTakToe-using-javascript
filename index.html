@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <style media="screen">
+      td{
+          height: 150px ;
+          width: 150px ;
+          border: 5px solid black ;
+          border-collapse: collapse;
+      }
+      td:hover{
+          background-color: rgb(237, 237, 237) ;
+      }
+      table{
+          border-collapse: collapse;
+          top: 150px ;
+          margin: auto;
+      }
+      .a{
+          border-width: 0px 5px 5px 0px ;
+      }
+      .b{
+          border-width: 0px 5px 5px 0px ;
+      }
+      .c{
+          border-width: 0px 0px 5px 5px ;
+      }
+      .d{
+          border-width: 0px 5px 5px 0px ;
+      }
+      .e{
+          border-width: 5px 5px 5px 5px ;
+      }
+      .f{
+          border-width: 0px 0px 0px 0px ;
+      }
+      .g{
+          border-width: 0px 5px 0px 0px ;
+      }
+      .h{
+          border-width: 0px 5px 0px 0px ;
+      }
+      .i{
+          border-width: 5px 0px 0px 0px ;
+      }
+      .modal1{
+          display: none;
+          position: fixed;
+          overflow: hidden;
+          height: 100% ;
+          width: 100% ;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 2 ;
+          top: 0;
+          left: 0 ;
+
+      }
+      .modalBody1{
+        position: fixed;
+        height: 300px ;
+        width: 350px ;
+        background-color: white ;
+        text-align: center;
+        font-size: 4em ;
+        font-weight: bold;
+        border-radius: 5% ;
+        top: 25% ;
+        left: 37% ;
+
+
+      }
+      .header{
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+
+    <div id="m1" class="modal1">
+
+        <div class="modalBody1">
+            <p id="result1" class="result">YOU WIN <br>&#9786 </p>
+            <button class="btn btn-primary" onclick="location.reload()" type="button" name="button">Play Again</button>
+            <button class="btn btn-danger" onclick="window.close()" type="button" name="button">Exit Game</button>
+        </div>
+
+    </div>
+        <h1 class="header"  >Tic Tac Toe</h1>
+    <br>
+    <br>
+
+<table>
+    <tr>
+        <td id="a" class="a" onclick='aclick()'></td>
+        <td id="b" onclick='bclick()' class="b"></td>
+        <td id="c" onclick='cclick()' class="c"> </td>
+    </tr>
+    <tr>
+        <td id="d" onclick='dclick()' class="d"></td>
+        <td id="e" onclick='eclick()' class="e"> </td>
+        <td id="f" onclick='fclick()' class="f"> </td>
+    </tr>
+    <tr>
+        <td id="g" onclick='gclick()' class="g"> </td>
+        <td id="h" onclick='hclick()' class="h"> </td>
+        <td id="i" onclick='iclick()' class="i"> </td>
+    </tr>
+</table>
+
+
+
+
+  </div>
+
+
+
+ <script type="text/javascript">
+
+  var xc =[0,0,0,0,0,0,0,0,0] ;
+
+  var rand ;
+
+  var counter=0 ;
+
+  function uwin() {
+      document.getElementById('result1').innerHTML="<p class='result'>YOU WIN<br>&#9786</p> " ;
+      document.getElementById('m1').style.display='block';
+
+      return ;
+      counter++ ;
+  }
+  function ulose() {
+      document.getElementById('result1').innerHTML="<p class='result'>YOU LOSE<br>&#9785</p> " ;
+
+      document.getElementById('m1').style.display='block';
+
+      return ;
+      counter++ ;
+  }
+  function utie() {
+      document.getElementById('result1').innerHTML="<p class='result'>TIE<br>&#9924</p> " ;
+
+      document.getElementById('m1').style.display='block';
+
+      return ;
+
+  }
+
+
+
+  function aclick() {
+      document.getElementById('a').style.backgroundImage="url('XX.png')" ;
+      xc[0]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+  function bclick() {
+      document.getElementById('b').style.backgroundImage="url('XX.png')" ;
+      xc[1]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+  function cclick() {
+      document.getElementById('c').style.backgroundImage="url('XX.png')" ;
+      xc[2]=1 ;
+        setTimeout(win,1000) ;
+        setTimeout(com,1000) ;
+  }
+  function dclick() {
+      document.getElementById('d').style.backgroundImage="url('XX.png')" ;
+      xc[3]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+  function eclick() {
+      document.getElementById('e').style.backgroundImage="url('XX.png')" ;
+      xc[4]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+
+  }
+  function fclick() {
+      document.getElementById('f').style.backgroundImage="url('XX.png')" ;
+      xc[5]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+  function gclick() {
+      document.getElementById('g').style.backgroundImage="url('XX.png')" ;
+      xc[6]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+  function hclick() {
+      document.getElementById('h').style.backgroundImage="url('XX.png')" ;
+      xc[7]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+  function iclick() {
+      document.getElementById('i').style.backgroundImage="url('XX.png')" ;
+      xc[8]=1 ;
+      setTimeout(win,1000) ;
+      setTimeout(com,1000) ;
+  }
+
+  function win() {
+      if ((xc[0]==1 && xc[1]==1 && xc[2]==1)||(xc[3]==1 && xc[4]==1 && xc[5]==1)||(xc[6]==1 && xc[7]==1 && xc[8]==1)) {
+            uwin() ;
+      } else  if ((xc[0]==1 && xc[3]==1 && xc[6]==1)||(xc[1]==1 && xc[4]==1 && xc[7]==1)||(xc[2]==1 && xc[5]==1 && xc[8]==1)) {
+             uwin() ;
+      }else if ((xc[0]==1 && xc[4]==1 && xc[8]==1)||(xc[2]==1 && xc[4]==1 && xc[6]==1)) {
+              uwin() ;
+      }
+
+  }
+
+  function lose() {
+      if ((xc[0]==2 && xc[1]==2 && xc[2]==2)||(xc[3]==2&& xc[4]==2 && xc[5]==2)||(xc[6]==2 && xc[7]==2 && xc[8]==2)) {
+            ulose() ;
+      } else  if ((xc[0]==2 && xc[3]==2 && xc[6]==2)||(xc[1]==2 && xc[4]==2 && xc[7]==2)||(xc[2]==2 && xc[5]==2 && xc[8]==2)) {
+            ulose() ;
+      }else if ((xc[0]==2 && xc[4]==2 && xc[8]==2)||(xc[2]==2 && xc[4]==2 && xc[6]==2)) {
+              ulose() ;
+      }
+
+  }
+
+
+
+function com() {
+    var count=0 ;
+    do {
+            rand = Math.floor(Math.random() * 9);
+            count++ ;
+            if (count>30) {
+                setTimeout(checkTie,3000);
+                return ;
+
+            }
+            console.log(count);
+    } while (xc[rand]==1 || xc[rand]==2);
+
+      switch (rand) {
+        case 0: acom() ;
+          break;
+          case 1: bcom() ;
+              break;
+              case 2: ccom() ;
+                  break;
+                  case 3: dcom() ;
+                      break;
+                      case 4: ecom() ;
+                          break;
+                          case 5: fcom() ;
+                              break;
+                              case 6: gcom() ;
+                                  break;
+                                  case 7: hcom() ;
+                                      break;
+                                      case 8: icom() ;
+                                          break;
+  }
+
+}
+  function acom() {
+      document.getElementById('a').style.backgroundImage="url('OO.png')" ;
+      xc[0]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function bcom() {
+      document.getElementById('b').style.backgroundImage="url('OO.png')" ;
+      xc[1]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function ccom() {
+      document.getElementById('c').style.backgroundImage="url('OO.png')" ;
+      xc[2]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function dcom() {
+      document.getElementById('d').style.backgroundImage="url('OO.png')" ;
+      xc[3]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function ecom() {
+      document.getElementById('e').style.backgroundImage="url('OO.png')" ;
+      xc[4]=2;
+      setTimeout(lose,600) ;
+  }
+  function fcom() {
+      document.getElementById('f').style.backgroundImage="url('OO.png')" ;
+      xc[5]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function gcom() {
+      document.getElementById('g').style.backgroundImage="url('OO.png')" ;
+      xc[6]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function hcom() {
+      document.getElementById('h').style.backgroundImage="url('OO.png')" ;
+      xc[7]=2 ;
+      setTimeout(lose,600) ;
+  }
+  function icom() {
+      document.getElementById('i').style.backgroundImage="url('OO.png')" ;
+      xc[8]=2 ;
+      setTimeout(lose,600) ;
+  }
+
+ function checkTie() {
+     if (counter==0) {
+         utie();
+     }
+ }
+
+
+
+
+
+
+ </script>
+</body>
+</html>
